@@ -1,3 +1,4 @@
+import "./conference.css";
 import ConferenceExperience from "./conference-experience";
 export const metadata = { title: "Conference experience | NBA-SBL" };
 export default function ConferencePage() {

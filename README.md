@@ -28,3 +28,29 @@ Visit http://localhost:3000.
 The web-first starter allows immediate Vercel preview testing. A dedicated Expo mobile application and Supabase backend will be added in later work packages.
 
 **Disclaimer:** Independent product prototype, not an official NBA-SBL service.
+
+## Conference preview — no authentication
+
+Visit `/conference` to test:
+- Select sessions from the agenda.
+- View associated presenter biography placeholders.
+- Navigate sample presentation slides with Previous/Next.
+- Play conference audio **after** a real stream is configured.
+
+### Live audio on Vercel
+
+In Vercel Project Settings → Environment Variables, add:
+
+```text
+NEXT_PUBLIC_CONFERENCE_AUDIO_URL=https://your-audio-provider.example/live.mp3
+```
+
+Redeploy the preview after adding the variable. The URL **must be public and browser-playable over HTTPS**, ideally a continuously served MP3 or AAC stream. HLS `.m3u8` playback depends on browser support and is not implemented universally in this starter. Vercel serves the web player; a dedicated streaming service or broadcast server supplies the live audio. The player does not originate a broadcast.
+
+The stream URL is exposed in the browser. **Never place a private token, password, or broadcaster secret in it.** For private streams, introduce a server-side token issuing integration.
+
+### Content and synchronization
+
+Session and speaker demo records live in `lib/conference.ts`. Replace them with the official confirmed programme. Slides are rendered as a local illustrative deck and controlled independently on each device; they do **not** yet synchronize to a presenter. Production synchronization will require a shared live session state (e.g., Supabase Realtime) and an authorized presenter console.
+
+No authentication, registration, check-in, quiz, or real conference audio ingest has been built yet.

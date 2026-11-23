@@ -15,7 +15,7 @@ export default function Home() {
           <div><div className="eyebrow"><span className="dot" /> THE NBA-SBL DIGITAL EXPERIENCE</div>
             <h1>Every SBL event.<br /><em>One connected experience.</em></h1>
             <p>Discover upcoming programmes, explore sessions, access conference resources and connect with the business law community.</p>
-            <div className="hero-actions"><a className="btn btn-primary" href="#events">Explore events <span aria-hidden="true">↗</span></a><a className="btn btn-outline" href="#experience">Explore features</a></div>
+            <div className="hero-actions"><Link className="btn btn-primary" href="/conference">Open conference hub <span aria-hidden="true">↗</span></Link><a className="btn btn-outline" href="#experience">Explore features</a></div>
             <p className="subnote">Early product preview · Event details shown are illustrative placeholders.</p>
           </div>
           <div className="hero-panel">
